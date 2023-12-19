@@ -7,8 +7,7 @@ using UnityEngine.UIElements;
 
 public class VictoryBunner : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-
+    private readonly int OpenTrigger = Animator.StringToHash("isShowing");
     private Animator _animator;
 
     private void Start()
@@ -20,6 +19,6 @@ public class VictoryBunner : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        _animator.SetTrigger("isShowing");
+        _animator.SetTrigger(OpenTrigger);
     }
 }

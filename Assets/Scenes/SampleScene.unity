@@ -1575,7 +1575,7 @@ GameObject:
   - component: {fileID: 750798928}
   - component: {fileID: 750798927}
   m_Layer: 0
-  m_Name: CoinCounter
+  m_Name: CoinCountPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,7 +1613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc4e9a041adef44285108499da476b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 863107465}
 --- !u!114 &750798927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,20 +1895,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
   m_PrefabInstance: {fileID: 1961219168}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &863107465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863107458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1693e47cebc8e40881335cbfa61d7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movingSpeed: 4
-  _forceJump: 380
 --- !u!61 &863107466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1955,6 +1940,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6254177, y: 0.6357646}
   m_EdgeRadius: 0
+--- !u!114 &863107471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f5c185a699c5c47a009511217fca93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &863107472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9d3a885c8e53e4cb76ef847aaef090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinCountPanel: {fileID: 750798926}
+--- !u!114 &863107473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1412480aece8ca44ca472b284acf1049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movingSpeed: 4
+  _forceJump: 360
 --- !u!1 &933357008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,8 +4781,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 863107465}
+      insertIndex: 2
+      addedObject: {fileID: 863107473}
+    - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 863107472}
+    - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 863107471}
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 863107466}
@@ -5285,7 +5315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac6e216c79266a4bbb49cd340582420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!95 &2034624030
 Animator:
   serializedVersion: 5

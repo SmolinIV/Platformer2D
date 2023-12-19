@@ -9,7 +9,7 @@ public class VictoryPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.TryGetComponent(out PlayerCondition player))
         {
             _fan.TurnOn();
             _bunner.Show();

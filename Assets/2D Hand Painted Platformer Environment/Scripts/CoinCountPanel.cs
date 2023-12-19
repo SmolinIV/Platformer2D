@@ -2,10 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinCounter : MonoBehaviour
+public class CoinCountPanel : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    
     private TextMeshPro _coinsNumber;
 
     private void Start()
@@ -14,8 +12,8 @@ public class CoinCounter : MonoBehaviour
         _coinsNumber.text = "0";
     }
 
-    void Update()
+    public void UpdateCoinsNumber(int coinsNumber)
     {
-        _coinsNumber.text = _player.CoinsNumber.ToString();
+        _coinsNumber.text = coinsNumber.ToString();
     }
 }

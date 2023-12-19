@@ -7,16 +7,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private readonly string EnemyRunningPermit = "isRunning";
+
     [SerializeField, Min(1)] private int _movingSpeed;
 
     private Animator _animator;
 
-    private int _pushForce = 200;
+    private int _pushForce = 300;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _animator.SetTrigger("isRunning");
+        _animator.SetBool(EnemyRunningPermit, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,11 +31,11 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent(out Player player))
+        if (collision.collider.TryGetComponent(out PlayerCondition player))
         {
             Vector2 pushDirection = (player.transform.position - transform.position).normalized;
 
-            player.GetRigidbody2D().AddForce(pushDirection * _pushForce);
+            player.Rigidbody2D.AddForce(pushDirection * _pushForce);
         }
     }
 
