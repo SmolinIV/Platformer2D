@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private PlayerMover _mover;
+    private InputHandler _input;
     private CoinTaker _taker;
 
     private Vector2 _startPosition;
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
     {
         _mover = GetComponent<PlayerMover>();
         _taker = GetComponent<CoinTaker>();
+        _input = GetComponent<InputHandler>();
+
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
         _startPosition = transform.position;
@@ -27,6 +30,22 @@ public class Player : MonoBehaviour
         IsOnGround = true;
         IsDied = false;
         IsWin = false;
+    }
+
+    private void Update()
+    {
+        int rightDirectionDegree = 0;
+        int leftDirectionDegree = 180;
+
+        if (_input.IsRightArrowPressed())
+            _mover.Run(rightDirectionDegree);
+        else if (_input.IsLeftArrowPressed())
+            _mover.Run(leftDirectionDegree);
+        else
+            _mover.Idle();
+
+        if (_input.IsUpArrowPressed() && IsOnGround)
+            Jump();
     }
 
     public void Die()
@@ -40,7 +59,7 @@ public class Player : MonoBehaviour
     public void Win()
     {
         IsWin = true;
-        Idle();
+        _mover.Idle();
         _mover.StartWinnerJumping();
     }
 
@@ -52,15 +71,10 @@ public class Player : MonoBehaviour
         _mover.Land();
     }
 
-    public void Run(int directionDegree) => _mover.Run(directionDegree);
-
-    public void Idle() => _mover.Idle();
-
     public void Fall() => _mover.Fall();
 
     public void Jump()
     { 
-        if (IsOnGround)
             _mover.Jump();    
     }
 

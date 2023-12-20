@@ -8,6 +8,10 @@ public class CoinCountPanel : MonoBehaviour
 
     private int _coinsNumber;
 
+    private void OnEnable() => CoinTaker.CoinPickUp += UpdateCoinsNumber;
+
+    private void OnDisable() => CoinTaker.CoinPickUp -= UpdateCoinsNumber;
+
     private void Start()
     {
         _coinsShowingNumber = GetComponent<TextMeshPro>();
