@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent(out PlayerCondition player))
+        if (collision.collider.TryGetComponent(out Player player))
         {
             Vector2 pushDirection = (player.transform.position - transform.position).normalized;
 

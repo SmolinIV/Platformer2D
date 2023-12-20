@@ -1940,18 +1940,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6254177, y: 0.6357646}
   m_EdgeRadius: 0
---- !u!114 &863107471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863107458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f5c185a699c5c47a009511217fca93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &863107472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,7 +1952,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9d3a885c8e53e4cb76ef847aaef090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinCountPanel: {fileID: 750798926}
+  CoinPickUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 750798926}
+        m_TargetAssemblyTypeName: CoinCountPanel, Assembly-CSharp
+        m_MethodName: UpdateCoinsNumber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &863107473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,7 +1980,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movingSpeed: 4
-  _forceJump: 360
+  _forceJump: 370
+--- !u!114 &863107478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e27f84decea5c49afbddc448a69d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &863107479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e0822cd0b84aa4a82a221c9843460a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &863107480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1693e47cebc8e40881335cbfa61d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &933357008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,11 +4640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.92
+      value: -8.76
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.54
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4782,13 +4820,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 863107473}
+      addedObject: {fileID: 863107480}
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 863107472}
+      addedObject: {fileID: 863107473}
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: 4
-      addedObject: {fileID: 863107471}
+      addedObject: {fileID: 863107472}
+    - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 863107479}
+    - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 863107478}
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 863107466}

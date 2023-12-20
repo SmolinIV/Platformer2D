@@ -4,16 +4,19 @@ using UnityEngine.UI;
 
 public class CoinCountPanel : MonoBehaviour
 {
-    private TextMeshPro _coinsNumber;
+    private TextMeshPro _coinsShowingNumber;
+
+    private int _coinsNumber;
 
     private void Start()
     {
-        _coinsNumber = GetComponent<TextMeshPro>();
-        _coinsNumber.text = "0";
+        _coinsShowingNumber = GetComponent<TextMeshPro>();
+        _coinsShowingNumber.text = "0";
+        _coinsNumber = 0;
     }
 
-    public void UpdateCoinsNumber(int coinsNumber)
+    public void UpdateCoinsNumber()
     {
-        _coinsNumber.text = coinsNumber.ToString();
+        _coinsShowingNumber.text = (++_coinsNumber).ToString();
     }
 }
