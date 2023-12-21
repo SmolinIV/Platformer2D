@@ -4,13 +4,11 @@ public class Player : MonoBehaviour
 {
     private PlayerMover _mover;
     private InputHandler _input;
-    private CoinTaker _taker;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
 
-    private int _coinsNumber;
-
+    private int _coinNumber;
     public Rigidbody2D Rigidbody2D { get; private set; }
     public bool IsOnGround { get; private set; }
     public bool IsDied { get; private set; }
@@ -19,7 +17,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _mover = GetComponent<PlayerMover>();
-        _taker = GetComponent<CoinTaker>();
         _input = GetComponent<InputHandler>();
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,13 +24,42 @@ public class Player : MonoBehaviour
         _startPosition = transform.position;
         _startScale = transform.localScale;
 
+        _coinNumber = 0;
+
         IsOnGround = true;
         IsDied = false;
         IsWin = false;
     }
 
+    private void OnEnable()
+    {
+        Enemy.KilledPlayer += Die;
+        CollisionHandler.PlayerReachedExit += Win;
+        CollisionHandler.PlayerLanded += Land;
+        CollisionHandler.PlayerGotOffGrounbd += Fall;
+        CoinTaker.CoinPickUp += TakeCoin;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.KilledPlayer -= Die;
+        CollisionHandler.PlayerReachedExit -= Win;
+        CollisionHandler.PlayerLanded -= Land;
+        CollisionHandler.PlayerGotOffGrounbd -= Fall;
+        CoinTaker.CoinPickUp -= TakeCoin;
+    }
+
     private void Update()
     {
+        if (IsDied)
+        {
+            IsDied = _mover.IsReviving;
+            return;
+        }
+
+        if (IsWin)
+            return;
+
         int rightDirectionDegree = 0;
         int leftDirectionDegree = 180;
 
@@ -54,38 +80,28 @@ public class Player : MonoBehaviour
         _mover.RespawnToStart(_startPosition, _startScale);
     }
 
-    public void Ressurect() => IsDied = false;
-
     public void Win()
     {
         IsWin = true;
         _mover.Idle();
-        _mover.StartWinnerJumping();
+        _mover.StartWinnerJumping(IsWin);
     }
 
     public void GetOffGround() => IsOnGround = false;
 
-    public void PutDownOnGround()
+    public void Land()
     {
         IsOnGround = true;
         _mover.Land();
     }
 
-    public void Fall() => _mover.Fall();
-
-    public void Jump()
-    { 
-            _mover.Jump();    
-    }
-
-    public void VictorioslyJump() => _mover.StartWinnerJumping();
-
-    public void TakeCoin(Coin coin)
+    public void Fall()
     {
-        if (coin != null)
-        {
-            ++_coinsNumber;
-            _taker.TakeCoin(coin);
-        }
+        GetOffGround();
+        _mover.Fall();
     }
+
+    public void Jump() => _mover.Jump();
+    
+    public void TakeCoin() => _coinNumber++;
 }

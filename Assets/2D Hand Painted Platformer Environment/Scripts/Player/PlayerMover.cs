@@ -9,17 +9,18 @@ public class PlayerMover : MonoBehaviour
     [SerializeField, Min(1)] private int _movingSpeed;
     [SerializeField, Min(1)] private int _forceJump;
 
-    private Player _player;
-
     private Coroutine _victoriouslyJumping;
     private Rigidbody2D _rigidbody2d;
     private Animator _animator;
+
+    public bool IsReviving { get; private set; }
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
-        _player = GetComponent<Player>();
+
+        IsReviving = true;
     }
 
     private void OnDestroy()
@@ -28,10 +29,6 @@ public class PlayerMover : MonoBehaviour
             StopCoroutine(_victoriouslyJumping);
     }
 
-    public void StartWinnerJumping()
-    {
-        _victoriouslyJumping = StartCoroutine(JumpVictoriously());
-    }
 
     public void Run(int directionDegree)
     {
@@ -47,20 +44,26 @@ public class PlayerMover : MonoBehaviour
 
     public void Land() => _animator.SetBool(EnemyJumpingPermit, false);
 
+    public void StartWinnerJumping(bool isPlayerWin) => _victoriouslyJumping = StartCoroutine(JumpVictoriously(isPlayerWin));
+
     public void Jump()
     {
         _animator.SetBool(EnemyJumpingPermit, true);
         _rigidbody2d.AddForce(new Vector2(0, _forceJump));
     }
 
-    public void RespawnToStart(Vector2 startPosition, Vector2 startScale) => StartCoroutine(Respawn(startPosition, startScale));
-
-    private IEnumerator JumpVictoriously()
+    public void RespawnToStart(Vector2 startPosition, Vector2 startScale)
     {
-        int forceJump = 150;
+        IsReviving = true;
+        StartCoroutine(Respawn(startPosition, startScale));
+    }
+
+    private IEnumerator JumpVictoriously(bool isPlayerWin)
+    {
+        int forceJump = 200;
         float jumpingDelay = 1.0f;
 
-        while (_player.IsWin)
+        while (isPlayerWin)
         {
             _animator.SetBool(EnemyJumpingPermit, true);
             _rigidbody2d.AddForce(new Vector2(0, forceJump));
@@ -82,9 +85,11 @@ public class PlayerMover : MonoBehaviour
 
         yield return new WaitForSeconds(respawnDelay);
 
+        Idle();
+
         transform.position = startPosition;
         transform.localScale = startScale;
-        _player.Ressurect();
+        IsReviving = false;
 
         yield break;
     }

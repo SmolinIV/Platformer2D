@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movingSpeed: 4
-  _forceJump: 370
+  _forceJump: 500
 --- !u!114 &863107478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4621,15 +4621,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 318160494863082213, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.91
+      value: -8.71
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.25
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.z

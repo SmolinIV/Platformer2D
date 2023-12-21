@@ -1,7 +1,13 @@
+using System;
 using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
+    public static Action PlayerReachedExit;
+    public static Action PlayerLanded;
+    public static Action PlayerGotOffGrounbd;
+    public static Action<Coin> PlayerPickedUpCoin;
+
     private Player _player;
 
     private void Start()
@@ -12,26 +18,16 @@ public class CollisionHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PhisicalPlatform phisicalPlatform))
-            _player.PutDownOnGround();
+            PlayerLanded?.Invoke();
         else if (collision.TryGetComponent(out VictoryPoint victoryPoint))
-            _player.Win();
+            PlayerReachedExit?.Invoke();
         else if (collision.TryGetComponent(out Coin coin))
-            _player.TakeCoin(coin);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.TryGetComponent(out Enemy enemy))
-            _player.Die();
+            PlayerPickedUpCoin?.Invoke(coin);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PhisicalPlatform phisicalPlatform))
-        {
-            _player.GetOffGround();
-            _player.Fall();
-        }
+            PlayerGotOffGrounbd?.Invoke();
     }
-
 }

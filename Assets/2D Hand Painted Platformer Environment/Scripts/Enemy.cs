@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Animator))]
 
@@ -12,6 +13,8 @@ public class Enemy : MonoBehaviour
     [SerializeField, Min(1)] private int _movingSpeed;
 
     private Animator _animator;
+
+    public static Action KilledPlayer;
 
     private int _pushForce = 300;
 
@@ -36,6 +39,8 @@ public class Enemy : MonoBehaviour
             Vector2 pushDirection = (player.transform.position - transform.position).normalized;
 
             player.Rigidbody2D.AddForce(pushDirection * _pushForce);
+
+            KilledPlayer?.Invoke();
         }
     }
 
