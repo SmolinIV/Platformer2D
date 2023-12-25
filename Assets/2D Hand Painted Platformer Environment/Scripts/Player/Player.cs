@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     private PlayerMover _mover;
     private InputHandler _input;
+    private ShurikenAttack _attack;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
@@ -72,6 +73,11 @@ public class Player : MonoBehaviour
 
         if (_input.IsUpArrowPressed() && IsOnGround)
             Jump();
+
+        if (_input.IsSpacePressed())
+        {
+
+        }
     }
 
     public void Die()
