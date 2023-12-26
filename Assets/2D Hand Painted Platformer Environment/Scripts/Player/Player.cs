@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     private PlayerMover _mover;
     private InputHandler _input;
-    private ShurikenAttack _attack;
+    private Attack _attack;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     {
         _mover = GetComponent<PlayerMover>();
         _input = GetComponent<InputHandler>();
+        _attack = GetComponent<Attack>();
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -75,9 +76,7 @@ public class Player : MonoBehaviour
             Jump();
 
         if (_input.IsSpacePressed())
-        {
-
-        }
+            _attack.ThrowShuriken();
     }
 
     public void Die()
