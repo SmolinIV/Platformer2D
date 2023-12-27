@@ -2014,7 +2014,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bad5e72985dc446914a0b3461294bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shuriken: {fileID: 5858113749139906032, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
+  _shurikenPrefab: {fileID: -1109394521318372798, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
+--- !u!114 &863107495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863107458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dfe4427bfa7794f91e361d01da890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenPrefab: {fileID: -1109394521318372798, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
+  _shurikenCount: 2
 --- !u!1 &933357008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,7 +2229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33766bf34eb0b604d9a5202cdd33dcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: {fileID: 4674620173876046523, guid: 6aa19207aa3dc6e49a896f3aeaae5685, type: 3}
+  _coinPrefab: {fileID: 4674620173876046523, guid: 6aa19207aa3dc6e49a896f3aeaae5685, type: 3}
 --- !u!1 &1059313476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,6 +4851,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 863107466}
+    - targetCorrespondingSourceObject: {fileID: 3870748326076863347, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 863107495}
   m_SourcePrefab: {fileID: 100100000, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
 --- !u!1 &1973847722
 GameObject:

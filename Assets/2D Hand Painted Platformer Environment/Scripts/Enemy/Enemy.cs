@@ -6,7 +6,7 @@ using System;
 
 [RequireComponent(typeof(Animator))]
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamagable
 {
     public static Action KilledPlayer;
 

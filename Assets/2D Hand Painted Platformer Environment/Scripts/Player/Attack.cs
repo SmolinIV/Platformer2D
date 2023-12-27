@@ -1,15 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
+
+[RequireComponent(typeof(ShurikenPool))]
 
 public class Attack : MonoBehaviour
 {
     [SerializeField] private Shuriken _shurikenPrefab;
 
-    private ObjectPool<Shuriken> _pooledShuriken;
+    private ShurikenPool _shurikenPool;
 
-    public void Awake()
+    private void Awake()
     {
-        //var ShurikenPool = new ObjectPool<Shuriken>(CreateShuriken, )
+        _shurikenPool = GetComponent<ShurikenPool>();
     }
 
     public void ThrowShuriken()
@@ -20,15 +23,10 @@ public class Attack : MonoBehaviour
         if (transform.rotation.y != 0)
             forceByAxisX *= -1;
 
-        Shuriken newShuriken = Instantiate(_shurikenPrefab, transform.position, Quaternion.identity);
-
-        newShuriken.StartFlying(new Vector2(forceByAxisX, forceByAxisY));
+        if(_shurikenPool.TryGetShuriken(out Shuriken spawnedShuriken))
+            spawnedShuriken.StartFlying(new Vector2(forceByAxisX, forceByAxisY));
     }
 
-    private Shuriken CreateShuriken() => Instantiate(_shurikenPrefab, transform.position, Quaternion.identity);
-    
-    private void GetNewShuriken(Shuriken shuriken)
-    {
-        shuriken.transform.position = transform.position;
-    }
+    private Shuriken CreateShuriken() => Instantiate(_shurikenPrefab);
+
 }

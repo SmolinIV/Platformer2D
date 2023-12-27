@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     private PlayerMover _mover;
     private InputHandler _input;
@@ -109,4 +109,9 @@ public class Player : MonoBehaviour
     public void Jump() => _mover.Jump();
     
     public void TakeCoin() => _coinNumber++;
+
+    public void TakeDamage(int damage)
+    {
+     
+    }
 }

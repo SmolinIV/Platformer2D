@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3142190388233408378}
   - component: {fileID: 7242894897544754522}
-  - component: {fileID: 4270148822165715306}
   - component: {fileID: 6965539234534406313}
   - component: {fileID: -4243286591251543561}
+  - component: {fileID: -627506482851840385}
   m_Layer: 0
   m_Name: RedShuricken
   m_TagString: Untagged
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4270148822165715306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577698224985843559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f434417ee1461c41b9af5f9af0fb581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 0
 --- !u!50 &6965539234534406313
 Rigidbody2D:
   serializedVersion: 4
@@ -162,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49
+--- !u!114 &-627506482851840385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577698224985843559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c162b8d9612d9429b846a0c8f8ede1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 1000

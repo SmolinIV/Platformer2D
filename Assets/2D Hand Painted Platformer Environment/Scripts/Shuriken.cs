@@ -5,9 +5,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class Shuriken : MonoBehaviour
+public abstract class Shuriken : MonoBehaviour
 {
     [SerializeField] private int _rotationSpeed;
+    private Type _targetType;
 
     private Rigidbody2D _rigidbody2D;
 
@@ -21,23 +22,31 @@ public class Shuriken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Enemy enemy))
+        if (collision.TryGetComponent(out IDamagable character))
         {
-            enemy.TakeDamage(_damage);
-            Destroy(gameObject);
+            if (character.GetType() == _targetType)
+            {
+                character.TakeDamage(_damage);
+                gameObject.SetActive(false);
+            }
         }
         else if (collision.TryGetComponent(out PhisicalPlatform platform))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
-    private void OnBecameInvisible() => Destroy(gameObject);
+    private void OnBecameInvisible() => gameObject.SetActive(false);
 
     private void Update() => transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
 
     public void StartFlying(Vector2 direction)
     {
         _rigidbody2D.AddForce(direction);
+    }
+
+    protected void Initialize(Type targetType)
+    {
+        _targetType = targetType;
     }
 }
