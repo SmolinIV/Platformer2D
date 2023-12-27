@@ -8,20 +8,23 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
+    public static Action KilledPlayer;
+
     private readonly string EnemyRunningPermit = "isRunning";
 
     [SerializeField, Min(1)] private int _movingSpeed;
 
     private Animator _animator;
 
-    public static Action KilledPlayer;
-
     private int _pushForce = 300;
+    private int _health;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool(EnemyRunningPermit, true);
+
+        _health = 100;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -48,5 +51,15 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Time.deltaTime * _movingSpeed, 0, 0);
     }
+
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
+
+        if (_health <= 0)
+            Die();
+    }
+
+    private void Die() => Destroy(gameObject);
 }
 
