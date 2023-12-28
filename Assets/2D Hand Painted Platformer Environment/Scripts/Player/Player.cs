@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnEnable()
     {
-        EnemyActions.KilledPlayer += Die;
+        EnemyActionsImplementor.KilledPlayer += Die;
         CollisionHandler.PlayerReachedExit += Win;
         CollisionHandler.PlayerLanded += Land;
         CollisionHandler.PlayerGotOffGrounbd += Fall;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnDisable()
     {
-        EnemyActions.KilledPlayer -= Die;
+        EnemyActionsImplementor.KilledPlayer -= Die;
         CollisionHandler.PlayerReachedExit -= Win;
         CollisionHandler.PlayerLanded -= Land;
         CollisionHandler.PlayerGotOffGrounbd -= Fall;

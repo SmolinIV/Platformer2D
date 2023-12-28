@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyRay : MonoBehaviour
 {
-    private Collider2D _collider2D;
+    private RayStartPoint _rayStartPoint;
     private RaycastHit2D _target;
     private float _rayLength;
 
     void Start()
     {
+        _rayStartPoint = GetComponentInChildren<RayStartPoint>();
         int rayIncreasingCoefficient = 10;
         _rayLength = transform.localScale.x * rayIncreasingCoefficient;
-        _collider2D = GetComponent<Collider2D>();
     }
 
     public bool TryFindPlayer()
     {
-        _target = Physics2D.Raycast(transform.position, transform.forward, _rayLength);
-        
-        if (_target.collider.gameObject.GetType() == typeof(Player))
+        _target = Physics2D.Raycast(_rayStartPoint.transform.position, _rayStartPoint.transform.right, _rayLength);
+
+        if (_target.collider == null)
+            return false;
+
+        if (_target.collider.gameObject.TryGetComponent(out Player player))
             return true;
 
         return false;
+
     }
 }

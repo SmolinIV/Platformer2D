@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 public class Attack : MonoBehaviour
 {
     [SerializeField] private Shuriken _shurikenPrefab;
-
+    [SerializeField] private Vector2 _throwingForce;
     private ShurikenPool _shurikenPool;
 
     private void Awake()
@@ -17,16 +17,12 @@ public class Attack : MonoBehaviour
 
     public void ThrowShuriken()
     {
-        float forceByAxisX = 250;
-        float forceByAxisY = 70;
-
         if (transform.rotation.y != 0)
-            forceByAxisX *= -1;
+            _throwingForce.x *= -1;
 
         if(_shurikenPool.TryGetShuriken(out Shuriken spawnedShuriken))
-            spawnedShuriken.StartFlying(new Vector2(forceByAxisX, forceByAxisY));
+            spawnedShuriken.StartFlying(_throwingForce);
     }
 
     private Shuriken CreateShuriken() => Instantiate(_shurikenPrefab);
-
 }

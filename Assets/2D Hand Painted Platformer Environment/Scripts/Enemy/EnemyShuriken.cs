@@ -6,6 +6,6 @@ public class EnemyShuriken : Shuriken
 {
     private void Start()
     {
-        Initialize(typeof(Player));
+        InitializeTarget(typeof(Player));
     }
 }

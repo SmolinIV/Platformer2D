@@ -471,8 +471,16 @@ GameObject:
   m_Component:
   - component: {fileID: 3870748326076863346}
   - component: {fileID: 3870748326076863350}
+  - component: {fileID: 4375963889809256549}
+  - component: {fileID: 2510009994196414390}
+  - component: {fileID: 7983855008090852144}
+  - component: {fileID: 6296484306627097112}
+  - component: {fileID: 5934217084437438607}
+  - component: {fileID: 148726400250615607}
   - component: {fileID: 4260073662510945054}
   - component: {fileID: 318160494863082213}
+  - component: {fileID: 8746763809732468268}
+  - component: {fileID: 3803025732005836481}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -519,6 +527,82 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4375963889809256549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1693e47cebc8e40881335cbfa61d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2510009994196414390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1412480aece8ca44ca472b284acf1049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movingSpeed: 4
+  _forceJump: 500
+--- !u!114 &7983855008090852144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9d3a885c8e53e4cb76ef847aaef090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6296484306627097112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e0822cd0b84aa4a82a221c9843460a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5934217084437438607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e27f84decea5c49afbddc448a69d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &148726400250615607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bad5e72985dc446914a0b3461294bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenPrefab: {fileID: -1109394521318372798, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
+  _throwingForce: {x: 350, y: 70}
 --- !u!60 &4260073662510945054
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -563,14 +647,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.64362174, y: 0.26452568}
+    - - {x: 0.55402756, y: -0.37588072}
+      - {x: 0.6499923, y: -0.09855196}
+      - {x: 0.5307827, y: 0.3320465}
+      - {x: 0.32391357, y: 0.5067196}
+      - {x: 0.048563004, y: 0.55855846}
       - {x: 0.046744347, y: 0.76627666}
       - {x: -0.45792288, y: 0.81082124}
       - {x: -0.7010095, y: 0.49295568}
-      - {x: -0.67711383, y: -0.21241325}
-      - {x: -0.44216385, y: -0.7497811}
-      - {x: 0.43121746, y: -0.749781}
-      - {x: 0.6431174, y: -0.46098226}
+      - {x: -0.48774147, y: 0.3385229}
+      - {x: -0.5771599, y: 0.14739323}
+      - {x: -0.63381195, y: -0.13643312}
+      - {x: -0.5497182, y: -0.4035067}
+      - {x: -0.39043617, y: -0.48299408}
+      - {x: -0.39757386, y: -0.7625212}
+      - {x: 0.39936855, y: -0.7561506}
+      - {x: 0.42017508, y: -0.5055708}
   m_UseDelaunayMesh: 0
 --- !u!50 &318160494863082213
 Rigidbody2D:
@@ -587,7 +679,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.8
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -599,6 +691,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &8746763809732468268
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005759239, y: -0.7997153}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6254177, y: 0.6357646}
+  m_EdgeRadius: 0
+--- !u!114 &3803025732005836481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870748326076863347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dfe4427bfa7794f91e361d01da890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenPrefab: {fileID: -1109394521318372798, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
+  _shurikenCount: 2
 --- !u!1 &3870748326205668337
 GameObject:
   m_ObjectHideFlags: 0

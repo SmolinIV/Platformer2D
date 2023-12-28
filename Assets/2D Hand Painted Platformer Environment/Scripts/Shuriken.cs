@@ -38,9 +38,9 @@ public abstract class Shuriken : MonoBehaviour
 
     private void OnBecameInvisible() => gameObject.SetActive(false);
 
-    private void Update() => transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
+    private void FixedUpdate() => transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
 
     public void StartFlying(Vector2 direction) => _rigidbody2D.AddForce(direction);
 
-    protected void Initialize(Type targetType) => _targetType = targetType;
+    protected void InitializeTarget(Type targetType) => _targetType = targetType;
 }

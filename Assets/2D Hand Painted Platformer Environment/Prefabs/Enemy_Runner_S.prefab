@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3766549265415439864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712857085918835924}
+  - component: {fileID: 7865590233550871211}
+  m_Layer: 0
+  m_Name: RayStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712857085918835924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766549265415439864}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.85, y: 0.16, z: 0.25279686}
+  m_LocalScale: {x: 0.6062493, y: 0.6062493, z: 0.6062493}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7961160090875915826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7865590233550871211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766549265415439864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2568971639c431a4c8390685474db360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7961160090131050230
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +438,7 @@ SpriteRenderer:
   m_Size: {x: 0.09, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7961160090797404087
@@ -472,6 +516,10 @@ GameObject:
   - component: {fileID: 6355856008441224558}
   - component: {fileID: 4018969951889517910}
   - component: {fileID: 8471112103846066160}
+  - component: {fileID: 3974208979945273950}
+  - component: {fileID: 8402114227785018034}
+  - component: {fileID: 2321140027086031020}
+  - component: {fileID: -8810395245828275727}
   m_Layer: 8
   m_Name: Enemy_Runner_S
   m_TagString: Untagged
@@ -495,6 +543,7 @@ Transform:
   - {fileID: 7961160090647232813}
   - {fileID: 7961160091793601459}
   - {fileID: 7961160090131050229}
+  - {fileID: 712857085918835924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7961160090875915829
@@ -533,7 +582,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.8
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -609,7 +658,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bba67385c22b734184abb97d5d548cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movingSpeed: 2
+--- !u!114 &3974208979945273950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217c70568faf73344a253ea22bea95db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8402114227785018034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4ef74a81441374db4a0866095b9b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movingSpeed: 4
+  _speedUpNumber: 1
+--- !u!114 &2321140027086031020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dfe4427bfa7794f91e361d01da890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenPrefab: {fileID: -627506482851840385, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
+  _shurikenCount: 1
+--- !u!114 &-8810395245828275727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bad5e72985dc446914a0b3461294bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenPrefab: {fileID: -627506482851840385, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
+  _throwingForce: {x: 550, y: 70}
 --- !u!1 &7961160091793601460
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +963,6 @@ SpriteRenderer:
   m_Size: {x: 0.09, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

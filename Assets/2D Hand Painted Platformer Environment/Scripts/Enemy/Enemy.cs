@@ -5,44 +5,60 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    private EnemyActions _actions;
+    private EnemyActionsImplementor _actionImplementor;
     private EnemyRay _ray;
-    private Attack _attack;
 
     private int _health;
 
-    public bool _isPlayerFind;
+    private bool _isPlayerFind;
 
     private void Start()
     {
+        _actionImplementor = GetComponent<EnemyActionsImplementor>();
+        _ray = GetComponent<EnemyRay>();
+
         _health = 100;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PatrollingBarrier barrier))
-            _actions.TurnAround();
+        {
+            if (_isPlayerFind)
+                _actionImplementor.NeedStop();
+            else
+                _actionImplementor.TurnAround();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out Player player))
-            _actions.Push(player);
+            _actionImplementor.Push(player);
     }
 
     private void Update()
     {
-        if (_ray.TryFindPlayer() && !_isPlayerFind)
+        if (_ray.TryFindPlayer())
         {
-            _isPlayerFind = true;
-            _actions.SpeedUp();
+            if (!_isPlayerFind)
+            {
+                _isPlayerFind = true;
+                _actionImplementor.Pounce();
+            }
+
+            return;
         }
-        else if (!_ray.TryFindPlayer())
+        else
         {
-            _isPlayerFind = false;
+            if (_isPlayerFind)
+            {
+                _isPlayerFind = false;
+                _actionImplementor.ReturnToPatrol();
+            }
         }
 
-        _actions.Move();     
+        _actionImplementor.Move();
     }
 
     public void TakeDamage(int damage)
