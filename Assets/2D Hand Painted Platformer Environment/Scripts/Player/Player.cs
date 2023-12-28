@@ -10,6 +10,9 @@ public class Player : MonoBehaviour, IDamagable
     private Vector2 _startScale;
 
     private int _coinNumber;
+    private int _maxHealth;
+    private int _health;
+
     public Rigidbody2D Rigidbody2D { get; private set; }
     public bool IsOnGround { get; private set; }
     public bool IsDied { get; private set; }
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour, IDamagable
         _startScale = transform.localScale;
 
         _coinNumber = 0;
+        _maxHealth = _health = 100;
 
         IsOnGround = true;
         IsDied = false;
@@ -35,7 +39,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnEnable()
     {
-        Enemy.KilledPlayer += Die;
+        EnemyActions.KilledPlayer += Die;
         CollisionHandler.PlayerReachedExit += Win;
         CollisionHandler.PlayerLanded += Land;
         CollisionHandler.PlayerGotOffGrounbd += Fall;
@@ -44,7 +48,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnDisable()
     {
-        Enemy.KilledPlayer -= Die;
+        EnemyActions.KilledPlayer -= Die;
         CollisionHandler.PlayerReachedExit -= Win;
         CollisionHandler.PlayerLanded -= Land;
         CollisionHandler.PlayerGotOffGrounbd -= Fall;
@@ -56,6 +60,7 @@ public class Player : MonoBehaviour, IDamagable
         if (IsDied)
         {
             IsDied = _mover.IsReviving;
+            _health = _maxHealth;
             return;
         }
 
@@ -112,6 +117,9 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-     
+        _health -= damage;
+
+        if (_health <= 0)
+            Die();
     }
 }

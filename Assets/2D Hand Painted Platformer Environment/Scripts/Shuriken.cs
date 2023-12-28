@@ -8,9 +8,9 @@ using UnityEngine;
 public abstract class Shuriken : MonoBehaviour
 {
     [SerializeField] private int _rotationSpeed;
-    private Type _targetType;
 
     private Rigidbody2D _rigidbody2D;
+    private Type _targetType;
 
     private int _damage;
 
@@ -40,13 +40,7 @@ public abstract class Shuriken : MonoBehaviour
 
     private void Update() => transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
 
-    public void StartFlying(Vector2 direction)
-    {
-        _rigidbody2D.AddForce(direction);
-    }
+    public void StartFlying(Vector2 direction) => _rigidbody2D.AddForce(direction);
 
-    protected void Initialize(Type targetType)
-    {
-        _targetType = targetType;
-    }
+    protected void Initialize(Type targetType) => _targetType = targetType;
 }

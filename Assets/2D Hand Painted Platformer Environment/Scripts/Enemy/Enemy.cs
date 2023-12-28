@@ -1,55 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using JetBrains.Annotations;
 using UnityEngine;
-using System;
 
 [RequireComponent(typeof(Animator))]
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    public static Action KilledPlayer;
+    private EnemyActions _actions;
+    private EnemyRay _ray;
+    private Attack _attack;
 
-    private readonly string EnemyRunningPermit = "isRunning";
-
-    [SerializeField, Min(1)] private int _movingSpeed;
-
-    private Animator _animator;
-
-    private int _pushForce = 300;
     private int _health;
+
+    public bool _isPlayerFind;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
-        _animator.SetBool(EnemyRunningPermit, true);
-
         _health = 100;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        int reversDegree = 180;
-
         if (collision.TryGetComponent(out PatrollingBarrier barrier))
-            transform.Rotate(0, reversDegree, 0);
+            _actions.TurnAround();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out Player player))
-        {
-            Vector2 pushDirection = (player.transform.position - transform.position).normalized;
-
-            player.Rigidbody2D.AddForce(pushDirection * _pushForce);
-
-            KilledPlayer?.Invoke();
-        }
+            _actions.Push(player);
     }
 
     private void Update()
     {
-        transform.Translate(Time.deltaTime * _movingSpeed, 0, 0);
+        if (_ray.TryFindPlayer() && !_isPlayerFind)
+        {
+            _isPlayerFind = true;
+            _actions.SpeedUp();
+        }
+        else if (!_ray.TryFindPlayer())
+        {
+            _isPlayerFind = false;
+        }
+
+        _actions.Move();     
     }
 
     public void TakeDamage(int damage)
