@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 
 [RequireComponent(typeof(ShurikenPool))]
 
-public class Attack : MonoBehaviour
+public class Attacker : MonoBehaviour
 {
     [SerializeField] private Shuriken _shurikenPrefab;
     [SerializeField] private Vector2 _throwingForce;
@@ -17,11 +17,11 @@ public class Attack : MonoBehaviour
 
     public void ThrowShuriken()
     {
-        if (transform.rotation.y != 0)
-            _throwingForce.x *= -1;
+        Vector2 direction = transform.right * _throwingForce;
+        direction.y += _throwingForce.y;
 
         if(_shurikenPool.TryGetShuriken(out Shuriken spawnedShuriken))
-            spawnedShuriken.StartFlying(_throwingForce);
+            spawnedShuriken.StartFlying(direction);
     }
 
     private Shuriken CreateShuriken() => Instantiate(_shurikenPrefab);

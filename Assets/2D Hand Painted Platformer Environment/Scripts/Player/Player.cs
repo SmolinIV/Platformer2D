@@ -4,7 +4,7 @@ public class Player : MonoBehaviour, IDamagable
 {
     private PlayerMover _mover;
     private InputHandler _input;
-    private Attack _attack;
+    private Attacker _attack;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         _mover = GetComponent<PlayerMover>();
         _input = GetComponent<InputHandler>();
-        _attack = GetComponent<Attack>();
+        _attack = GetComponent<Attacker>();
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnEnable()
     {
-        EnemyActionsImplementor.KilledPlayer += Die;
+        EnemyMover.KilledPlayer += Die;
         CollisionHandler.PlayerReachedExit += Win;
         CollisionHandler.PlayerLanded += Land;
         CollisionHandler.PlayerGotOffGrounbd += Fall;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnDisable()
     {
-        EnemyActionsImplementor.KilledPlayer -= Die;
+        EnemyMover.KilledPlayer -= Die;
         CollisionHandler.PlayerReachedExit -= Win;
         CollisionHandler.PlayerLanded -= Land;
         CollisionHandler.PlayerGotOffGrounbd -= Fall;

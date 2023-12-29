@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    private EnemyActionsImplementor _actionImplementor;
+    private EnemyMover _actionImplementor;
     private EnemyRay _ray;
 
     private int _health;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        _actionImplementor = GetComponent<EnemyActionsImplementor>();
+        _actionImplementor = GetComponent<EnemyMover>();
         _ray = GetComponent<EnemyRay>();
 
         _health = 100;
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, IDamagable
             _actionImplementor.Push(player);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_ray.TryFindPlayer())
         {

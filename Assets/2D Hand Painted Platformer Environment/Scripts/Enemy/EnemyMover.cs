@@ -2,15 +2,16 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-public class EnemyActionsImplementor : MonoBehaviour
+public class EnemyMover : MonoBehaviour
 {
-    public static Action KilledPlayer;
-
     private readonly string EnemyRunningPermit = "isRunning";
+
+    public static Action KilledPlayer;
 
     [SerializeField, Min(1)] private int _movingSpeed;
     [SerializeField, Min(1)] private int _speedUpNumber;
-    private Attack _attack;
+
+    private Attacker _attack;
     private Animator _animator;
 
     private Coroutine _rushingCoroutine;
@@ -29,7 +30,7 @@ public class EnemyActionsImplementor : MonoBehaviour
 
     private void Start()
     {
-        _attack = GetComponent<Attack>();
+        _attack = GetComponent<Attacker>();
         _animator = GetComponent<Animator>();
         _animator.SetBool(EnemyRunningPermit, true);
     }
@@ -47,7 +48,6 @@ public class EnemyActionsImplementor : MonoBehaviour
             directionDegree = 0;
 
         transform.rotation = new Quaternion(0, directionDegree, 0, 0);
-
     }
 
     public void Push(Player player)
@@ -82,21 +82,19 @@ public class EnemyActionsImplementor : MonoBehaviour
         }
     }
 
-    public void SpeedUp() => _movingSpeed += _speedUpNumber;
-
-    public void SlowDown() => _movingSpeed -= _speedUpNumber;
-
     public void NeedStop() => _isNeedToStop = true;
 
     public IEnumerator Rush()
     {
-        while (!_isNeedToStop)
+        while (_isNeedToStop == false)
         {
             Move();
             yield return null;
         }
 
         _animator.SetBool(EnemyRunningPermit, false);
+
+        yield break;
     }
 
     public IEnumerator Attack()
@@ -107,4 +105,8 @@ public class EnemyActionsImplementor : MonoBehaviour
             yield return null;
         }
     }
+
+    private void SpeedUp() => _movingSpeed += _speedUpNumber;
+
+    private void SlowDown() => _movingSpeed -= _speedUpNumber;
 }
