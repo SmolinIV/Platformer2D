@@ -4,14 +4,13 @@ public class Player : MonoBehaviour, IDamagable
 {
     private PlayerMover _mover;
     private InputHandler _input;
-    private Attacker _attack;
+    private ShurikenThrower _attack;
+    private Wallet _wallet;
+    private HealthContol _healthContol;
+    private CoinTaker _coinTaker;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
-
-    private int _coinNumber;
-    private int _maxHealth;
-    private int _health;
 
     public Rigidbody2D Rigidbody2D { get; private set; }
     public bool IsOnGround { get; private set; }
@@ -22,46 +21,35 @@ public class Player : MonoBehaviour, IDamagable
     {
         _mover = GetComponent<PlayerMover>();
         _input = GetComponent<InputHandler>();
-        _attack = GetComponent<Attacker>();
+        _attack = GetComponent<ShurikenThrower>();
+        _wallet = GetComponent<Wallet>();
+        _healthContol = GetComponent<HealthContol>();
+        _coinTaker = GetComponent<CoinTaker>();
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
         _startPosition = transform.position;
         _startScale = transform.localScale;
 
-        _coinNumber = 0;
-        _maxHealth = _health = 100;
-
         IsOnGround = true;
         IsDied = false;
         IsWin = false;
     }
 
-    private void OnEnable()
-    {
-        EnemyMover.KilledPlayer += Die;
-        CollisionHandler.PlayerReachedExit += Win;
-        CollisionHandler.PlayerLanded += Land;
-        CollisionHandler.PlayerGotOffGrounbd += Fall;
-        CoinTaker.CoinPickUp += TakeCoin;
-    }
-
-    private void OnDisable()
-    {
-        EnemyMover.KilledPlayer -= Die;
-        CollisionHandler.PlayerReachedExit -= Win;
-        CollisionHandler.PlayerLanded -= Land;
-        CollisionHandler.PlayerGotOffGrounbd -= Fall;
-        CoinTaker.CoinPickUp -= TakeCoin;
-    }
-
     private void Update()
     {
-        if (IsDied)
+        if (_healthContol.CurrentHealth <= 0)
         {
-            IsDied = _mover.IsReviving;
-            _health = _maxHealth;
-            return;
+            if (IsDied)
+            {
+                IsDied = _mover.IsReviving;
+                _healthContol.Recover();
+                return;
+            }
+            else
+            {
+                Die();
+            }
         }
 
         if (IsWin)
@@ -113,13 +101,8 @@ public class Player : MonoBehaviour, IDamagable
 
     public void Jump() => _mover.Jump();
     
-    public void TakeCoin() => _coinNumber++;
+    public void TakeCoin(Coin coin) => _coinTaker.TakeCoin(coin);
 
-    public void TakeDamage(int damage)
-    {
-        _health -= damage;
+    public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
 
-        if (_health <= 0)
-            Die();
-    }
 }

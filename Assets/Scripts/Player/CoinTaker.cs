@@ -5,18 +5,22 @@ using UnityEngine;
 
 public class CoinTaker : MonoBehaviour
 {
-    public static Action CoinPickUp;
+    public static Action CoinPickedUp;
 
-    private void OnEnable() => CollisionHandler.PlayerPickedUpCoin += TakeCoin;
+    private Wallet _wallet;
 
-    private void OnDisable() => CollisionHandler.PlayerPickedUpCoin -= TakeCoin;
+    private void Start()
+    {
+        _wallet = GetComponent<Wallet>();
+    }
 
     public void TakeCoin(Coin coin)
     {
         if (coin != null)
         {
             Destroy(coin.gameObject);
-            CoinPickUp?.Invoke();
+            _wallet.PutCoin();
+            CoinPickedUp?.Invoke();
         }
     }
 }

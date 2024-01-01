@@ -8,9 +8,9 @@ public class CoinCountPanel : MonoBehaviour
 
     private int _coinsNumber;
 
-    private void OnEnable() => CoinTaker.CoinPickUp += UpdateCoinsNumber;
+    private void OnEnable() => CoinTaker.CoinPickedUp += UpdateCoinsNumber;
 
-    private void OnDisable() => CoinTaker.CoinPickUp -= UpdateCoinsNumber;
+    private void OnDisable() => CoinTaker.CoinPickedUp -= UpdateCoinsNumber;
 
     private void Start()
     {

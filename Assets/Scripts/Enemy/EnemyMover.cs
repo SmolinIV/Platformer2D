@@ -6,33 +6,54 @@ public class EnemyMover : MonoBehaviour
 {
     private readonly string EnemyRunningPermit = "isRunning";
 
-    public static Action KilledPlayer;
-
     [SerializeField, Min(1)] private int _movingSpeed;
     [SerializeField, Min(1)] private int _speedUpNumber;
+    [SerializeField] private Transform _leftPatrolPoint;
+    [SerializeField] private Transform _rightPatrolPoint;
 
-    private Attacker _attack;
+    private Vector3 _leftPatrolPointPosition;
+    private Vector3 _rightPatrolPointPosition;
+
     private Animator _animator;
 
     private Coroutine _rushingCoroutine;
-    private Coroutine _attackingCoroutine;
 
-    private bool _isNeedToStop;
-
-    public void OnDisable()
+    private void Awake()
     {
-        if (_rushingCoroutine != null)
-            StopCoroutine(_rushingCoroutine);
+        _leftPatrolPointPosition = _leftPatrolPoint.position;
+        _rightPatrolPointPosition = _rightPatrolPoint.position;
 
-        if (_attackingCoroutine != null)
-            StopCoroutine(_attackingCoroutine);
+        _leftPatrolPoint.gameObject.SetActive(false);
+        _rightPatrolPoint.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        _attack = GetComponent<Attacker>();
         _animator = GetComponent<Animator>();
         _animator.SetBool(EnemyRunningPermit, true);
+    }
+
+    private void OnDisable()
+    {
+        if (_rushingCoroutine != null)
+            StopCoroutine(_rushingCoroutine);
+    }
+
+    public void Patrolling()
+    {
+        int rightMovingDegree = 0;
+
+        if (transform.rotation.y == rightMovingDegree && transform.position.x >= _rightPatrolPointPosition.x)
+        {
+            TurnAround();
+        }
+        else
+        {
+            if (transform.position.x <= _leftPatrolPointPosition.x)
+                TurnAround();
+        }
+
+        Move();
     }
 
     public void Move()
@@ -57,36 +78,28 @@ public class EnemyMover : MonoBehaviour
         Vector2 pushDirection = (player.transform.position - transform.position).normalized;
         player.Rigidbody2D.AddForce(pushDirection * _pushForce);
 
-        KilledPlayer?.Invoke();
+        player.TakeDamage(Int32.MaxValue);
     }
 
     public void Pounce()
     {
         SpeedUp();
         _rushingCoroutine = StartCoroutine(Rush());
-        _attackingCoroutine = StartCoroutine(Attack());
+        
     }
 
     public void ReturnToPatrol()
     {
         StopCoroutine(_rushingCoroutine);
-        StopCoroutine(_attackingCoroutine);
 
         SlowDown();
 
-        if (_isNeedToStop)
-        {
-            TurnAround();
-            _animator.SetBool(EnemyRunningPermit, true);
-            _isNeedToStop = false;
-        }
+        _animator.SetBool(EnemyRunningPermit, true);
     }
-
-    public void NeedStop() => _isNeedToStop = true;
 
     public IEnumerator Rush()
     {
-        while (_isNeedToStop == false)
+        while (transform.position.x >= _leftPatrolPointPosition.x && transform.position.x <= _rightPatrolPointPosition.x)
         {
             Move();
             yield return null;
@@ -95,15 +108,6 @@ public class EnemyMover : MonoBehaviour
         _animator.SetBool(EnemyRunningPermit, false);
 
         yield break;
-    }
-
-    public IEnumerator Attack()
-    {
-        while (true)
-        {
-            _attack.ThrowShuriken();
-            yield return null;
-        }
     }
 
     private void SpeedUp() => _movingSpeed += _speedUpNumber;

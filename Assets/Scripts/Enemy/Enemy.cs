@@ -5,70 +5,67 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    private EnemyMover _actionImplementor;
-    private EnemyRay _ray;
+    private EnemyMover _mover;
+    private EnemyScanner _scanner;
+    private HealthContol _healthContol;
+    private EnemyAttacker _attacker;
 
-    private int _health;
+    private float _maxTrackingTime;
+    private float _currentTrackingTime;
 
     private bool _isPlayerFind;
 
     private void Start()
     {
-        _actionImplementor = GetComponent<EnemyMover>();
-        _ray = GetComponent<EnemyRay>();
+        _mover = GetComponent<EnemyMover>();
+        _scanner = GetComponent<EnemyScanner>();
+        _healthContol = GetComponent<HealthContol>();
+        _attacker =  GetComponent<EnemyAttacker>();
 
-        _health = 100;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out PatrollingBarrier barrier))
-        {
-            if (_isPlayerFind)
-                _actionImplementor.NeedStop();
-            else
-                _actionImplementor.TurnAround();
-        }
+        _maxTrackingTime = 2f;
+        _currentTrackingTime = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out Player player))
-            _actionImplementor.Push(player);
+            _mover.Push(player);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (_ray.TryFindPlayer())
-        {
-            if (!_isPlayerFind)
-            {
-                _isPlayerFind = true;
-                _actionImplementor.Pounce();
-            }
+        if (_healthContol.CurrentHealth <= 0)
+            Die();
 
-            return;
+        if (_isPlayerFind)
+        {
+            _currentTrackingTime += Time.deltaTime;
+
+            if (_currentTrackingTime >= _maxTrackingTime)
+            {
+                _currentTrackingTime = 0;
+
+                if (!_scanner.TryFindPlayer())
+                { 
+                    _isPlayerFind = false;
+                    _mover.ReturnToPatrol();
+                    _attacker.StopAttack();
+                }
+            }
+        }
+        else if (_scanner.TryFindPlayer())
+        {
+            _isPlayerFind = true;
+            _mover.Pounce();
+            _attacker.Attack();
         }
         else
         {
-            if (_isPlayerFind)
-            {
-                _isPlayerFind = false;
-                _actionImplementor.ReturnToPatrol();
-            }
+            _mover.Patrolling();
         }
-
-        _actionImplementor.Move();
     }
 
-    public void TakeDamage(int damage)
-    {
-        _health -= damage;
-
-        if (_health <= 0)
-            Die();
-    }
+    public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
 
     private void Die() => Destroy(gameObject);
 }
-

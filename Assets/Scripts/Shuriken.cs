@@ -8,16 +8,15 @@ using UnityEngine;
 public abstract class Shuriken : MonoBehaviour
 {
     [SerializeField] private int _rotationSpeed;
+    [SerializeField] private int _damage = 10;
 
     private Rigidbody2D _rigidbody2D;
     private Type _targetType;
 
-    private int _damage;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _damage = 50;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
