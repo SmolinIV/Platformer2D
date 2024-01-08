@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36dfe4427bfa7794f91e361d01da890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shurikenPrefab: {fileID: -627506482851840385, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
+  _shurikenPrefab: {fileID: 893859834656690444, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
   _shurikenCount: 2
 --- !u!114 &8660850472817983855
 MonoBehaviour:
@@ -791,7 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfbf887c8fc7534a94abec65a163e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shurikenPrefab: {fileID: -627506482851840385, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
   _throwingForce: {x: 550, y: 90}
 --- !u!114 &8366177566165397267
 MonoBehaviour:

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 152768569632153571}
   - component: {fileID: 6955935447515634671}
   - component: {fileID: 3855143928292996725}
-  - component: {fileID: -1109394521318372798}
+  - component: {fileID: 3764166008582105790}
   m_Layer: 0
   m_Name: BlueShuriken
   m_TagString: Untagged
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49
---- !u!114 &-1109394521318372798
+--- !u!114 &3764166008582105790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,8 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4883363695523919872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fd8be33aad7bb4ca706f9623b9c2f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f434417ee1461c41b9af5f9af0fb581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 1000
+  _targetType: {fileID: 0}
+  _rotationSpeed: 35
   _damage: 50

@@ -6,7 +6,6 @@ using UnityEngine.Pool;
 
 public class ShurikenThrower : MonoBehaviour
 {
-    [SerializeField] private Shuriken _shurikenPrefab;
     [SerializeField] private Vector2 _throwingForce;
     private ShurikenPool _shurikenPool;
 

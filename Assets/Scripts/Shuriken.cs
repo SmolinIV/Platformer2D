@@ -5,14 +5,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public abstract class Shuriken : MonoBehaviour
+public class Shuriken : MonoBehaviour
 {
+    [SerializeField] private Transform _targetType;
     [SerializeField] private int _rotationSpeed;
     [SerializeField] private int _damage = 10;
 
     private Rigidbody2D _rigidbody2D;
-    private Type _targetType;
-
 
     private void Awake()
     {
@@ -23,7 +22,7 @@ public abstract class Shuriken : MonoBehaviour
     {
         if (collision.TryGetComponent(out IDamagable character))
         {
-            if (character.GetType() == _targetType)
+            if ((object)character == _targetType)
             {
                 character.TakeDamage(_damage);
                 gameObject.SetActive(false);
@@ -40,6 +39,4 @@ public abstract class Shuriken : MonoBehaviour
     private void FixedUpdate() => transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime);
 
     public void StartFlying(Vector2 direction) => _rigidbody2D.AddForce(direction);
-
-    protected void InitializeTarget(Type targetType) => _targetType = targetType;
 }
