@@ -1,13 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Shuriken : MonoBehaviour
 {
-    [SerializeField] private Transform _targetType;
+    [SerializeField] private GameObject _target;
     [SerializeField] private int _rotationSpeed;
     [SerializeField] private int _damage = 10;
 
@@ -22,11 +20,11 @@ public class Shuriken : MonoBehaviour
     {
         if (collision.TryGetComponent(out IDamagable character))
         {
-            if ((object)character == _targetType)
-            {
-                character.TakeDamage(_damage);
-                gameObject.SetActive(false);
-            }
+            //if (character.GetType() == ??)
+            //{
+            //    character.TakeDamage(_damage);
+            //    gameObject.SetActive(false);
+            //}
         }
         else if (collision.TryGetComponent(out PhisicalPlatform platform))
         {

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, IDamagable
     private InputHandler _input;
     private ShurikenThrower _attack;
     private Wallet _wallet;
-    private HealthContol _healthContol;
+    private Health _healthContol;
     private CoinTaker _coinTaker;
 
     private Vector2 _startPosition;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, IDamagable
         _input = GetComponent<InputHandler>();
         _attack = GetComponent<ShurikenThrower>();
         _wallet = GetComponent<Wallet>();
-        _healthContol = GetComponent<HealthContol>();
+        _healthContol = GetComponent<Health>();
         _coinTaker = GetComponent<CoinTaker>();
 
         Rigidbody2D = GetComponent<Rigidbody2D>();

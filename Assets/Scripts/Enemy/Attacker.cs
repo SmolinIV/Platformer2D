@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttacker : MonoBehaviour
+public class Attacker : MonoBehaviour
 {
     private ShurikenThrower _shurikenThrower;
 
@@ -30,11 +30,12 @@ public class EnemyAttacker : MonoBehaviour
     private IEnumerator CyclicalAttack()
     {
         int attackDelay = 1;
+        WaitForSeconds timer = new WaitForSeconds(attackDelay);
 
         while (true)
         {
             _shurikenThrower.ThrowShuriken();
-            yield return new WaitForSeconds(attackDelay);
+            yield return timer;
         }
     }
 }

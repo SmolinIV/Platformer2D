@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyScanner : MonoBehaviour
+public class Scanner : MonoBehaviour
 {
     private readonly string _targetTag = "Player";
 

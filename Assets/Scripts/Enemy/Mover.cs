@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-public class EnemyMover : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     private readonly string EnemyRunningPermit = "isRunning";
 

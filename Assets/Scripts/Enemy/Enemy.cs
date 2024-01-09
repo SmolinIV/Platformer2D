@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    private EnemyMover _mover;
-    private EnemyScanner _scanner;
-    private HealthContol _healthContol;
-    private EnemyAttacker _attacker;
+    private Mover _mover;
+    private Scanner _scanner;
+    private Health _healthContol;
+    private Attacker _attacker;
 
     private float _maxTrackingTime;
     private float _currentTrackingTime;
@@ -17,10 +17,10 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        _mover = GetComponent<EnemyMover>();
-        _scanner = GetComponent<EnemyScanner>();
-        _healthContol = GetComponent<HealthContol>();
-        _attacker =  GetComponent<EnemyAttacker>();
+        _mover = GetComponent<Mover>();
+        _scanner = GetComponent<Scanner>();
+        _healthContol = GetComponent<Health>();
+        _attacker =  GetComponent<Attacker>();
 
         _maxTrackingTime = 2f;
         _currentTrackingTime = 0;

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HealthContol : MonoBehaviour
+public class Health : MonoBehaviour
 {
     private int _maxHealth;
 
