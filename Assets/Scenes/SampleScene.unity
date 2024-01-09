@@ -4347,6 +4347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8746763809732468268, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5072,6 +5076,6 @@ SceneRoots:
   - {fileID: 972949547}
   - {fileID: 750798925}
   - {fileID: 1961219168}
-  - {fileID: 1265118883}
   - {fileID: 143983873}
   - {fileID: 87681504}
+  - {fileID: 1265118883}
