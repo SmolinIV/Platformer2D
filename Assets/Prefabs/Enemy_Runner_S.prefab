@@ -578,12 +578,12 @@ GameObject:
   - component: {fileID: 6355856008441224558}
   - component: {fileID: 4018969951889517910}
   - component: {fileID: 8471112103846066160}
-  - component: {fileID: 8402114227785018034}
   - component: {fileID: 2321140027086031020}
-  - component: {fileID: 8660850472817983855}
   - component: {fileID: 1840240877161027342}
   - component: {fileID: 8854654492553145980}
-  - component: {fileID: 8366177566165397267}
+  - component: {fileID: 1300525762262834909}
+  - component: {fileID: 8279933670121588771}
+  - component: {fileID: 1830296613578986140}
   m_Layer: 8
   m_Name: Enemy_Runner_S
   m_TagString: Untagged
@@ -724,22 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bba67385c22b734184abb97d5d548cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8402114227785018034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7961160090875915830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4ef74a81441374db4a0866095b9b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movingSpeed: 4
-  _speedUpNumber: 2
-  _leftPatrolPoint: {fileID: 5528482012084543991}
-  _rightPatrolPoint: {fileID: 6346542107678937223}
 --- !u!114 &2321140027086031020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,19 +738,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shurikenPrefab: {fileID: 893859834656690444, guid: 02689fe03f13f3f40a60604f174997da, type: 3}
   _shurikenCount: 2
---- !u!114 &8660850472817983855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7961160090875915830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e15752161b2078478d474b20bb85724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rayStartPoint: {fileID: 7865590233550871211}
 --- !u!114 &1840240877161027342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwingForce: {x: 550, y: 90}
---- !u!114 &8366177566165397267
+--- !u!114 &1300525762262834909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -801,9 +772,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 7961160090875915830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd855b2dbaa6964c896710b8d581797, type: 3}
+  m_Script: {fileID: 11500000, guid: eecef867c8eb70d4593ec09049c6a9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8279933670121588771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976ba68cf27e78948aaede2d86ede9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movingSpeed: 3
+  _speedUpNumber: 2
+  _leftPatrolPoint: {fileID: 5528482012084543991}
+  _rightPatrolPoint: {fileID: 6346542107678937223}
+--- !u!114 &1830296613578986140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961160090875915830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddbfdd3feec7574e901fa9b77ab4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayStartPoint: {fileID: 7865590233550871211}
 --- !u!1 &7961160091793601460
 GameObject:
   m_ObjectHideFlags: 0
