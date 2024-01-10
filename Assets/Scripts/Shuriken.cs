@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,25 +9,24 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Shuriken : MonoBehaviour
 {
-    [SerializeField] private GameObject _thrower;
+    [SerializeField] private GameObject _throwerPrefab;
     [SerializeField] private int _rotationSpeed;
     [SerializeField] private int _damage = 10;
 
     private Rigidbody2D _rigidbody2D;
-    private Collider2D _collider2D;
-    private Collider2D[] _throwerColliders2D;
 
-    private void Awake()
+    private void OnEnable()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _collider2D = GetComponent<Collider2D>();
-        _throwerColliders2D = _thrower.GetComponents<Collider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out IDamagable character))
         {
+            if (Equals(PrefabUtility.GetPrefabObject(_throwerPrefab), (object)character))
+                return;
+
             character.TakeDamage(_damage);
             gameObject.SetActive(false);
         }
@@ -40,9 +40,6 @@ public class Shuriken : MonoBehaviour
 
     private void Update()
     {
-        foreach (Collider2D collider in _throwerColliders2D)
-            Physics2D.IgnoreCollision(collider, _collider2D, true);
-
         transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime); 
     }
 
