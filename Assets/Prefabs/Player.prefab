@@ -550,11 +550,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3870748326076863347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1412480aece8ca44ca472b284acf1049, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c1b55761bc5ca4d9b6cfabd288dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movingSpeed: 4
-  _forceJump: 500
+  _movingSpeed: 3
+  _forceJump: 250
 --- !u!114 &7983855008090852144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfbf887c8fc7534a94abec65a163e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shurikenPrefab: {fileID: -1109394521318372798, guid: 42d36f9eec2690d428deafc7bf373a82, type: 3}
   _throwingForce: {x: 350, y: 70}
 --- !u!60 &4260073662510945054
 PolygonCollider2D:

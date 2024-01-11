@@ -1,15 +1,10 @@
-using System;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Shuriken : MonoBehaviour
 {
-    [SerializeField] private GameObject _throwerPrefab;
     [SerializeField] private int _rotationSpeed;
     [SerializeField] private int _damage = 10;
 
@@ -24,9 +19,6 @@ public class Shuriken : MonoBehaviour
     {
         if (collision.TryGetComponent(out IDamagable character))
         {
-            if (Equals(PrefabUtility.GetPrefabObject(_throwerPrefab), (object)character))
-                return;
-
             character.TakeDamage(_damage);
             gameObject.SetActive(false);
         }
@@ -44,4 +36,12 @@ public class Shuriken : MonoBehaviour
     }
 
     public void StartFlying(Vector2 direction) => _rigidbody2D.AddForce(direction);
+
+    public void InitializeThrower(GameObject thrower)
+    {
+        Collider2D[] throwerColloders = thrower.GetComponents<Collider2D>();
+
+        foreach(Collider2D collider in throwerColloders)
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collider, true);
+    }
 }

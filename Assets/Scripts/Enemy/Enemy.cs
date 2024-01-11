@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    private Mover _mover;
+    private Patrol _mover;
     private Scanner _scanner;
     private Health _healthContol;
     private Attacker _attacker;
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        _mover = GetComponent<Mover>();
+        _mover = GetComponent<Patrol>();
         _scanner = GetComponent<Scanner>();
         _healthContol = GetComponent<Health>();
         _attacker =  GetComponent<Attacker>();

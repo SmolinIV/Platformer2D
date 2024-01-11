@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamagable
 {
-    private PlayerMover _mover;
+    private Mover _mover;
     private InputHandler _input;
     private ShurikenThrower _attack;
     private Wallet _wallet;
     private Health _healthContol;
     private CoinTaker _coinTaker;
+    private CollisionHandler _collisionHandler;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
@@ -17,14 +18,32 @@ public class Player : MonoBehaviour, IDamagable
     public bool IsDied { get; private set; }
     public bool IsWin { get; private set; }
 
+    public void OnEnable()
+    {
+        _collisionHandler = GetComponent<CollisionHandler>();
+        _collisionHandler.Landed += Land;
+        _collisionHandler.Won += Win;
+        _collisionHandler.CoinTaken += TakeCoin;
+        _collisionHandler.GetOffGround += GetOffGround;
+    }
+
+    public void OnDisable()
+    {
+        _collisionHandler.Landed -= Land;
+        _collisionHandler.Won -= Win;
+        _collisionHandler.CoinTaken -= TakeCoin;
+        _collisionHandler.GetOffGround -= GetOffGround;
+    }
+
     private void Start()
     {
-        _mover = GetComponent<PlayerMover>();
+        _mover = GetComponent<Mover>();
         _input = GetComponent<InputHandler>();
         _attack = GetComponent<ShurikenThrower>();
         _wallet = GetComponent<Wallet>();
         _healthContol = GetComponent<Health>();
         _coinTaker = GetComponent<CoinTaker>();
+        
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
 

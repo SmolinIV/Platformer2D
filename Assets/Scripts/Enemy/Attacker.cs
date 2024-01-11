@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
+    [SerializeField] private int attackDelay = 1;
     private ShurikenThrower _shurikenThrower;
 
     private Coroutine _attacking;
@@ -29,7 +30,6 @@ public class Attacker : MonoBehaviour
 
     private IEnumerator CyclicalAttack()
     {
-        int attackDelay = 1;
         WaitForSeconds timer = new WaitForSeconds(attackDelay);
 
         while (true)

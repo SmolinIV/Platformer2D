@@ -31,6 +31,7 @@ public class ShurikenPool : MonoBehaviour
             {
                 spawnedShuriken = shuriken;
                 spawnedShuriken.transform.position = transform.position;
+                spawnedShuriken.InitializeThrower(gameObject);
                 spawnedShuriken.gameObject.SetActive(true);
 
                 return true;
