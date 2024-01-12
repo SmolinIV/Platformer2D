@@ -3,19 +3,29 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _maxHealth;
-
+    public int MaxHealth { get; private set; }
     public int CurrentHealth { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        _maxHealth = CurrentHealth = 100;
+        MaxHealth = CurrentHealth = 100;
     }
 
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
+
+        if (CurrentHealth < 0)
+         CurrentHealth = 0; 
     }
 
-    public void Recover() => CurrentHealth = _maxHealth;
+    public void TakeHeal(int healingPoints)
+    {
+        CurrentHealth += healingPoints;
+
+        if (CurrentHealth > MaxHealth)
+            CurrentHealth = MaxHealth;
+    }
+
+    public void Recover() => TakeHeal(MaxHealth);
 }
