@@ -67,5 +67,5 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
 
-    private void Die() => Destroy(gameObject);
+    private void Die() => gameObject.SetActive(false);
 }

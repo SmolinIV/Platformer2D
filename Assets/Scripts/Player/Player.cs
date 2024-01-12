@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamagable
 {
+    [SerializeField] private VampiricTouch _vampiricTouch;
+
     private Mover _mover;
     private InputHandler _input;
     private ShurikenThrower _attack;
@@ -43,7 +45,6 @@ public class Player : MonoBehaviour, IDamagable
         _wallet = GetComponent<Wallet>();
         _healthContol = GetComponent<Health>();
         _coinTaker = GetComponent<CoinTaker>();
-        
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour, IDamagable
 
         if (_input.IsSpacePressed())
             _attack.ThrowShuriken();
+
     }
 
     public void Die()
@@ -123,5 +125,7 @@ public class Player : MonoBehaviour, IDamagable
     public void TakeCoin(Coin coin) => _coinTaker.TakeCoin(coin);
 
     public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
+
+    public void TakeHeal(int healingPoints) => _healthContol.TakeHeal(healingPoints);
 
 }
