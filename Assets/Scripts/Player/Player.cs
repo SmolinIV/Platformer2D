@@ -57,7 +57,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (_healthContol.CurrentHealth <= 0)
+        if (_healthContol.Current <= 0)
         {
             if (IsDied)
             {
@@ -122,6 +122,6 @@ public class Player : MonoBehaviour, IDamagable
     
     public void TakeCoin(Coin coin) => _coinTaker.TakeCoin(coin);
 
-    public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
+    public void TakeDamage(float damage) => _healthContol.TakeDamage(damage);
 
 }

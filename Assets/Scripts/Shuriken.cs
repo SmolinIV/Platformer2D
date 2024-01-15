@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shuriken : MonoBehaviour
 {
     [SerializeField] private int _rotationSpeed;
-    [SerializeField] private int _damage = 10;
+    [SerializeField] private float _damage = 10f;
 
     private Rigidbody2D _rigidbody2D;
 

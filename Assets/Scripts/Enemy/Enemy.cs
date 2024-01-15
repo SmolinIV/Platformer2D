@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (_healthContol.CurrentHealth <= 0)
+        if (_healthContol.Current <= 0)
             Die();
 
         if (_isPlayerFind)
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeDamage(int damage) => _healthContol.TakeDamage(damage);
+    public void TakeDamage(float damage) => _healthContol.TakeDamage(damage);
 
     private void Die() => Destroy(gameObject);
 }
