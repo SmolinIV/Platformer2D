@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (_healthContol.CurrentHealth <= 0)
+        if (_healthContol.Current <= 0)
             Die();
 
         if (_isPlayerFind)

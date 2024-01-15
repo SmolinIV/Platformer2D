@@ -289,8 +289,13 @@ RectTransform:
   m_GameObject: {fileID: 5158755021360537043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+>>>>>>> Stashed changes
   m_Children:
   - {fileID: 3958025672276445548}
   - {fileID: 6646015533927912544}
@@ -373,8 +378,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61192a84b52fc984197460ce7acf9c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   _target: {fileID: 0}
   _smoothnessCoefficient: 150
+=======
+  TargetHealth: {fileID: 0}
+  SmoothnessCoefficient: 1
+>>>>>>> Stashed changes
 --- !u!1 &5530317166098634972
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public abstract class HealthBar : MonoBehaviour
 {
+<<<<<<< Updated upstream
     [SerializeField] protected GameObject _target;
 
     protected Health _targetHealth;
@@ -39,4 +40,19 @@ public abstract class HealthBar : MonoBehaviour
     }
 
     protected abstract void UpdateHealthBar();
+=======
+    [SerializeField] protected Health TargetHealth;
+
+    public void OnDisable()
+    {
+        TargetHealth.HealthChaged -= UpdateCondition;
+    }
+
+    protected void Start()
+    {
+        TargetHealth.HealthChaged += UpdateCondition;
+    }
+
+    protected abstract void UpdateCondition();
+>>>>>>> Stashed changes
 }
