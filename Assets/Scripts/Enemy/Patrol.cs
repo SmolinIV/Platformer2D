@@ -11,12 +11,11 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform _leftPatrolPoint;
     [SerializeField] private Transform _rightPatrolPoint;
 
+    private Animator _animator;
+    private Coroutine _rushingCoroutine;
+
     private Vector3 _leftPatrolPointPosition;
     private Vector3 _rightPatrolPointPosition;
-
-    private Animator _animator;
-
-    private Coroutine _rushingCoroutine;
 
     private void Awake()
     {
@@ -90,7 +89,8 @@ public class Patrol : MonoBehaviour
 
     public void ReturnToPatrol()
     {
-        StopCoroutine(_rushingCoroutine);
+        if (_rushingCoroutine != null)
+            StopCoroutine(_rushingCoroutine);
 
         SlowDown();
 

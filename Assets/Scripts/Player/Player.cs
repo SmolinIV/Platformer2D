@@ -6,9 +6,10 @@ public class Player : MonoBehaviour, IDamagable
     private InputHandler _input;
     private ShurikenThrower _attack;
     private Wallet _wallet;
-    private Health _healthContol;
+    private Health _health;
     private CoinTaker _coinTaker;
     private CollisionHandler _collisionHandler;
+    private SkillContainer _skills;
 
     private Vector2 _startPosition;
     private Vector2 _startScale;
@@ -41,8 +42,9 @@ public class Player : MonoBehaviour, IDamagable
         _input = GetComponent<InputHandler>();
         _attack = GetComponent<ShurikenThrower>();
         _wallet = GetComponent<Wallet>();
-        _healthContol = GetComponent<Health>();
+        _health = GetComponent<Health>();
         _coinTaker = GetComponent<CoinTaker>();
+        _skills = GetComponent<SkillContainer>();
         
 
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -57,17 +59,18 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (_healthContol.Current <= 0)
+        if (_health.Current <= 0)
         {
             if (IsDied)
             {
                 IsDied = _mover.IsReviving;
-                _healthContol.Recover();
+                _health.Recover();
                 return;
             }
             else
             {
                 Die();
+                _skills.DeactiveAllSkills();
             }
         }
 
@@ -89,6 +92,12 @@ public class Player : MonoBehaviour, IDamagable
 
         if (_input.IsSpacePressed())
             _attack.ThrowShuriken();
+
+        foreach (Skill skill in _skills.GetAllSkills())
+        {
+            if (_input.IsCurrentKeyPressed(skill.ActivationKey))
+                skill.Activate();
+        }
     }
 
     public void Die()
@@ -122,6 +131,7 @@ public class Player : MonoBehaviour, IDamagable
     
     public void TakeCoin(Coin coin) => _coinTaker.TakeCoin(coin);
 
-    public void TakeDamage(float damage) => _healthContol.TakeDamage(damage);
+    public void TakeDamage(float damage) => _health.TakeDamage(damage);
 
+    public void TakeHeal(float healingPoint) => _health.TakeHeal(healingPoint);
 }

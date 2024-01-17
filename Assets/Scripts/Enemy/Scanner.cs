@@ -5,7 +5,9 @@ public class Scanner : MonoBehaviour
     private readonly string _targetTag = "Player";
 
     [SerializeField ]private RayStartPoint _rayStartPoint;
+
     private RaycastHit2D _detectedObject;
+
     private float _rayLength;
 
     void Start()

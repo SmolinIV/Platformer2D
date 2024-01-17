@@ -5,8 +5,8 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [SerializeField] private int attackDelay = 1;
-    private ShurikenThrower _shurikenThrower;
 
+    private ShurikenThrower _shurikenThrower;
     private Coroutine _attacking;
 
     private void Start()

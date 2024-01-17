@@ -3,36 +3,24 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    public delegate void LandHandler();
-    public delegate void JumpHendler();
-    public delegate void VictoryHandler();
-    public delegate void CoinTakingHandler(Coin coin);
-
-    public event LandHandler Landed;
-    public event JumpHendler GetOffGround;
-    public event VictoryHandler Won;
-    public event CoinTakingHandler CoinTaken;
-
-    private Player _player;
-
-    private void Start()
-    {
-        _player = GetComponent<Player>();
-    }
+    public event Action Landed;
+    public event Action GetOffGround;
+    public event Action Won;
+    public event Action<Coin> CoinTaken;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PhisicalPlatform phisicalPlatform))
-            Landed();
+            Landed?.Invoke();
         else if (collision.TryGetComponent(out VictoryPoint victoryPoint))
-            Won();
+            Won?.Invoke();
         else if (collision.TryGetComponent(out Coin coin))
-            CoinTaken(coin);
+            CoinTaken?.Invoke(coin);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PhisicalPlatform phisicalPlatform))
-            GetOffGround();
+            GetOffGround?.Invoke();
     }
 }

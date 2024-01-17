@@ -7,6 +7,7 @@ using UnityEngine.Pool;
 public class ShurikenThrower : MonoBehaviour
 {
     [SerializeField] private Vector2 _throwingForce;
+
     private ShurikenPool _shurikenPool;
 
     private void Awake()

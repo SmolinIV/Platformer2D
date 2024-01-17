@@ -1,0 +1,756 @@
+fileFormatVersion: 2
+guid: 8d9566b3cb76b8549a850af3ff009d3a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 416
+        width: 174
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d35cfad73ccb242842c929d5c8e805
+      internalID: -233871484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_1
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 414
+        width: 105
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c85cab4bf2765840a7ce320e4d9cb2f
+      internalID: -1145456739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_2
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 412
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f84e379c6e9f074db3f4169e441fdd4
+      internalID: 1810080878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_3
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 413
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce7edb6b906ea44da84d0383a9d53d9
+      internalID: -1961215971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 365
+        width: 146
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52cf62a192403348b97b1a749dfebb5
+      internalID: -1504229660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_5
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 364
+        width: 88
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db417fb6e3a3dd4488dd0ab16b3b723
+      internalID: 733016290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_6
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 364
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3efee2be1383d42ac3ea21051db624
+      internalID: -1869500636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_7
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 363
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9f8dbe9478ed945b2142c83cfda7e4
+      internalID: 1692784182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_8
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 303
+        width: 122
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f856bcfd1cfa5449596bd71a9b3d77
+      internalID: 823715706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_9
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 301
+        width: 73
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6674d36ff23fa0c4fb4ec8f9ca791b64
+      internalID: -11116762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_10
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 301
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92026627a47dc924aafcd518553e844c
+      internalID: -1729916176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_11
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 300
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb800456f8589c64d91eab709f0dcff6
+      internalID: -1661026415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_12
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 239
+        width: 190
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97dea2396d017849b055e3d253fbf41
+      internalID: -1476360355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_13
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 238
+        width: 114
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdc5bbe2a076e04f803f445dff8d33f
+      internalID: -2023074716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 238
+        width: 55
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6c612c3bd1041428d1296f4760d89b
+      internalID: 236914303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_15
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 238
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e609332b945b5449147757aac9d03e
+      internalID: -1572332102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_16
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 186
+        width: 125
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e184bc042f69074887c285f8281a2e8
+      internalID: 28988464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_17
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 189
+        width: 73
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f0c0cff993bea4b9131837af71629d
+      internalID: 1980977653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_18
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 186
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc41a79495684e4d8ab7807358252ec
+      internalID: -2055384880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_19
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 189
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4088f20eb7d8c984488c0216e8eb2140
+      internalID: -261619371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 115
+        width: 209
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c735db4bc49a944b8757de6aa40475
+      internalID: 1269859110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_21
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 114
+        width: 128
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3f6316fbf6a9e47a5345ee1505fe6f
+      internalID: -570101250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_22
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 110
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa97da21c851cf4290aad92957ad14a
+      internalID: -1578796382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_23
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 113
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 062b9e70876feec44b0598a007b04f74
+      internalID: 1468633836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_24
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 22
+        width: 186
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812a703eb143b594c83c12b70adf59b8
+      internalID: 862852463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_25
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 19
+        width: 120
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a04ae728a13ce41932dea7bb476fdd
+      internalID: 479786085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_26
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 15
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eac95f34e4f0e4f957e3c36f15cc56
+      internalID: 1565188903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wcpioneer45_pixian_ai_27
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 18
+        width: 82
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34140ca0ff9fc424db5bf60c24a30840
+      internalID: -135334141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      wcpioneer45_pixian_ai_0: -233871484
+      wcpioneer45_pixian_ai_1: -1145456739
+      wcpioneer45_pixian_ai_10: -1729916176
+      wcpioneer45_pixian_ai_11: -1661026415
+      wcpioneer45_pixian_ai_12: -1476360355
+      wcpioneer45_pixian_ai_13: -2023074716
+      wcpioneer45_pixian_ai_14: 236914303
+      wcpioneer45_pixian_ai_15: -1572332102
+      wcpioneer45_pixian_ai_16: 28988464
+      wcpioneer45_pixian_ai_17: 1980977653
+      wcpioneer45_pixian_ai_18: -2055384880
+      wcpioneer45_pixian_ai_19: -261619371
+      wcpioneer45_pixian_ai_2: 1810080878
+      wcpioneer45_pixian_ai_20: 1269859110
+      wcpioneer45_pixian_ai_21: -570101250
+      wcpioneer45_pixian_ai_22: -1578796382
+      wcpioneer45_pixian_ai_23: 1468633836
+      wcpioneer45_pixian_ai_24: 862852463
+      wcpioneer45_pixian_ai_25: 479786085
+      wcpioneer45_pixian_ai_26: 1565188903
+      wcpioneer45_pixian_ai_27: -135334141
+      wcpioneer45_pixian_ai_3: -1961215971
+      wcpioneer45_pixian_ai_4: -1504229660
+      wcpioneer45_pixian_ai_5: 733016290
+      wcpioneer45_pixian_ai_6: -1869500636
+      wcpioneer45_pixian_ai_7: 1692784182
+      wcpioneer45_pixian_ai_8: 823715706
+      wcpioneer45_pixian_ai_9: -11116762
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

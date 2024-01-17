@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     private Patrol _mover;
     private Scanner _scanner;
-    private Health _healthContol;
+    private Health _health;
     private Attacker _attacker;
 
     private float _maxTrackingTime;
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         _mover = GetComponent<Patrol>();
         _scanner = GetComponent<Scanner>();
-        _healthContol = GetComponent<Health>();
+        _health = GetComponent<Health>();
         _attacker =  GetComponent<Attacker>();
 
         _maxTrackingTime = 2f;
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        if (_healthContol.Current <= 0)
+        if (_health.Current <= 0)
             Die();
 
         if (_isPlayerFind)
@@ -65,7 +65,9 @@ public class Enemy : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeDamage(float damage) => _healthContol.TakeDamage(damage);
+    public void TakeDamage(float damage) => _health.TakeDamage(damage);
 
     private void Die() => Destroy(gameObject);
+
+    public void TakeHeal(float healingPoint) => _health.TakeHeal(healingPoint);
 }

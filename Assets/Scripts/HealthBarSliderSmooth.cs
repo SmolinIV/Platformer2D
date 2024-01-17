@@ -7,6 +7,7 @@ public class HealthBarSliderSmooth : HealthBarSlider
     [SerializeField] protected int SmoothnessCoefficient = 1;
 
     private Coroutine _calculatingSliderPosition;
+
     private float LastShowingHealth;
 
     private void OnDisable()
