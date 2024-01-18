@@ -63,14 +63,20 @@ public class Player : MonoBehaviour, IDamagable
         {
             if (IsDied)
             {
-                IsDied = _mover.IsReviving;
-                _health.Recover();
+                if (!_mover.IsReviving)
+                {
+                    _health.Recover();
+                    IsDied = false;
+                }
+
                 return;
             }
             else
             {
                 Die();
                 _skills.DeactiveAllSkills();
+
+                return;
             }
         }
 

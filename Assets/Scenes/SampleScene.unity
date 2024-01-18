@@ -2722,9 +2722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b268c667773d4b54cb9101cebcaa1ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  _scopeRadius: 7
-  duration: 5
+  Damage: 7
+  _scopeRadius: 2
+  duration: 6
   _lifeBall: {fileID: 8602719363480253283, guid: d23f746e2e2886047b3a04a2a6fb32d3, type: 3}
 --- !u!1 &1377649645
 GameObject:
@@ -4456,11 +4456,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.68
+      value: -8.83
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -3.38
       objectReference: {fileID: 0}
     - target: {fileID: 3870748326076863346, guid: c589ff4470e5857469bad0859c60d61a, type: 3}
       propertyPath: m_LocalPosition.z

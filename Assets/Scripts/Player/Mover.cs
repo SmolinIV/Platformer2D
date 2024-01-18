@@ -75,7 +75,7 @@ public class Mover : MonoBehaviour
     private IEnumerator Respawn(Vector2 startPosition, Vector2 startScale)
     {
         float respawnDelay = 0.5f;
-        int decreasingSpeed = 1;
+        int decreasingSpeed = 2;
 
         while (transform.localScale.y > 0)
         {

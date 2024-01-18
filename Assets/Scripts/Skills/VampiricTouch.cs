@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class VampiricTouch : Skill
@@ -43,6 +40,16 @@ public class VampiricTouch : Skill
                 break;
             }
         }
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        if (_takingLifePoints != null)
+            StopCoroutine(_takingLifePoints);
+
+        Target = null;
     }
 
     private IEnumerator TakeLifePoints()

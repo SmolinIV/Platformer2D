@@ -18,8 +18,7 @@ public abstract class Skill : MonoBehaviour
         SkillUser = GetComponent<Player>();
     }
 
-
     public abstract void Activate();
 
-    public void Deactivate() => IsActive = false;
+    public virtual void Deactivate() => IsActive = false;
 }

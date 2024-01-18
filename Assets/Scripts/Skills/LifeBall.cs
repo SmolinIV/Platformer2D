@@ -15,14 +15,18 @@ public class LifeBall : MonoBehaviour
         if (_target == null)
             return;
 
-        if (transform.position == _target.transform.position || _target.IsDied)
+        if (transform.position == _target.transform.position)
         {
             _target.TakeHeal(HealthPoints);
             Destroy(gameObject);
         }
+        else if (_target.IsDied)
+        {
+            Destroy(gameObject);
+        }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.localPosition, _target.transform.position, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
         }  
     }
 
