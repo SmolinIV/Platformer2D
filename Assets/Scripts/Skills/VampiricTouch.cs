@@ -1,4 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VampiricTouch : Skill
@@ -12,7 +15,6 @@ public class VampiricTouch : Skill
     public void Start()
     {
         base.Start();
-        ActivationKey = KeyCode.LeftControl;
     }
 
     private void OnDisable()
@@ -21,24 +23,26 @@ public class VampiricTouch : Skill
             StopCoroutine( _takingLifePoints );
     }
 
+    private void Update()
+    {
+        if (Target == null)
+            return;
+
+        if (Vector2.Distance(transform.position, Target.transform.position) > _scopeRadius)
+            Deactivate();
+    }
+
     public override void Activate()
     {
         if (IsActive)
             return;
 
-        Collider2D[] detectingResult = Physics2D.OverlapCircleAll(transform.position, _scopeRadius);
-
-        foreach (Collider2D target in detectingResult)
+        if (TryFindClosestEnemy(out Enemy closestEnemy))
         {
-            if (target.TryGetComponent(out Enemy enemy))
-            {
-                Target = enemy;
-                IsActive = true;
+            Target = closestEnemy;
+            IsActive = true;
 
-                _takingLifePoints = StartCoroutine(TakeLifePoints());
-
-                break;
-            }
+            _takingLifePoints = StartCoroutine(TakeLifePoints());
         }
     }
 
@@ -50,6 +54,33 @@ public class VampiricTouch : Skill
             StopCoroutine(_takingLifePoints);
 
         Target = null;
+    }
+
+    private bool TryFindClosestEnemy(out Enemy closestEnemy)
+    {
+        closestEnemy = null;
+
+        Collider2D[] detectingResult = Physics2D.OverlapCircleAll(transform.position, _scopeRadius);
+
+        IEnumerable<Collider2D> enemies = detectingResult.Where(target => target.TryGetComponent(out Enemy enemy));
+
+        if (enemies.Count() == 0)
+            return false;
+
+        float minDistance = float.MaxValue;
+
+        foreach (var enemy in enemies)
+        {
+            float estimatedDistance = Vector2.Distance(transform.position, enemy.transform.position);
+
+            if (estimatedDistance < minDistance)
+            {
+                minDistance = estimatedDistance;
+                Target = enemy.GetComponent<Enemy>();
+            }
+        }
+
+        return true;
     }
 
     private IEnumerator TakeLifePoints()

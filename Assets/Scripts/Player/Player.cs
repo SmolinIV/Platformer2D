@@ -101,7 +101,7 @@ public class Player : MonoBehaviour, IDamagable
 
         foreach (Skill skill in _skills.GetAllSkills())
         {
-            if (_input.IsCurrentKeyPressed(skill.ActivationKey))
+            if (_input.IsCurrentKeyPressed(skill.GetActivationKeyCode()))
                 skill.Activate();
         }
     }

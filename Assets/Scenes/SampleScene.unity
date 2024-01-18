@@ -2722,6 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b268c667773d4b54cb9101cebcaa1ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActivationKey: 306
   Damage: 7
   _scopeRadius: 2
   duration: 6
