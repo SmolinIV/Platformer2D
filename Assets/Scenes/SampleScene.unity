@@ -380,6 +380,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5528482012084543991, guid: 9b2edc5d9864c9c49a6b1eca0997af35, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.93
+      objectReference: {fileID: 0}
     - target: {fileID: 7792610328978458551, guid: 9b2edc5d9864c9c49a6b1eca0997af35, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2722,9 +2726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b268c667773d4b54cb9101cebcaa1ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivationKey: 306
+  _activationKey: 306
   Damage: 7
-  _scopeRadius: 2
+  _scopeRadius: 3
   duration: 6
   _lifeBall: {fileID: 8602719363480253283, guid: d23f746e2e2886047b3a04a2a6fb32d3, type: 3}
 --- !u!1 &1377649645

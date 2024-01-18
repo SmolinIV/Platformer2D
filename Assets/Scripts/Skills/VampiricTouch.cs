@@ -37,11 +37,9 @@ public class VampiricTouch : Skill
         if (IsActive)
             return;
 
-        if (TryFindClosestEnemy(out Enemy closestEnemy))
+        if (TryFindClosestTarget())
         {
-            Target = closestEnemy;
             IsActive = true;
-
             _takingLifePoints = StartCoroutine(TakeLifePoints());
         }
     }
@@ -56,29 +54,29 @@ public class VampiricTouch : Skill
         Target = null;
     }
 
-    private bool TryFindClosestEnemy(out Enemy closestEnemy)
+    private bool TryFindClosestTarget()
     {
-        closestEnemy = null;
+        float minDistance = float.MaxValue;
+        int minDistanceEnemyIndex = 0;
 
         Collider2D[] detectingResult = Physics2D.OverlapCircleAll(transform.position, _scopeRadius);
-
-        IEnumerable<Collider2D> enemies = detectingResult.Where(target => target.TryGetComponent(out Enemy enemy));
+        List<Collider2D> enemies = detectingResult.Where(target => target.TryGetComponent(out Enemy enemy)).ToList();
 
         if (enemies.Count() == 0)
             return false;
 
-        float minDistance = float.MaxValue;
-
-        foreach (var enemy in enemies)
+        for (int i = 0; i < enemies.Count(); i++)
         {
-            float estimatedDistance = Vector2.Distance(transform.position, enemy.transform.position);
+            float estimatedDistance = Vector2.Distance(transform.position, enemies[i].transform.position);
 
             if (estimatedDistance < minDistance)
             {
                 minDistance = estimatedDistance;
-                Target = enemy.GetComponent<Enemy>();
+                minDistanceEnemyIndex = i;
             }
         }
+
+        Target = enemies[minDistanceEnemyIndex].GetComponent<Enemy>();
 
         return true;
     }
